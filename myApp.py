@@ -1,10 +1,10 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import ObjectProperty
+from kivy.properties import StringProperty
 
 
 class MainWindow(BoxLayout):
-    text_colour = ObjectProperty([1, 0, 0, 1])
+    myString = StringProperty()
 
     def __init__(self, **kwargs):
         super(MainWindow, self).__init__(**kwargs)

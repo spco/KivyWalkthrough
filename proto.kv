@@ -1,9 +1,10 @@
 <MainWindow>:
     Label:
         id: myLabel
-        text: myTextInput.text
+        text: root.myString
     TextInput:
         id: myTextInput
         text: ''
         hint_text: 'Write in me!'
         multiline: False
+        on_text_validate: root.myString = self.text
