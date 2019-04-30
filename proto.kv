@@ -2,9 +2,12 @@
     Label:
         id: myLabel
         text: root.myString
+
     TextInput:
         id: myTextInput
         text: ''
+        input_filter: 'int'
+        input_type: 'number'
         hint_text: 'Write in me!'
         multiline: False
         on_text_validate: root.myString = self.text
