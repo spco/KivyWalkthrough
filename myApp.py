@@ -6,15 +6,10 @@ from kivy.properties import StringProperty
 class MainWindow(BoxLayout):
     myString = StringProperty()
 
-    def __init__(self, **kwargs):
-        super(MainWindow, self).__init__(**kwargs)
-
 
 class ProtoApp(App):
     def build(self):
-        main_window = MainWindow()
-        print(self)
-        return main_window
+        return MainWindow()
 
 
 if __name__ == "__main__":
