@@ -1,8 +1,45 @@
-<MainWindow>:
-    Label:
-        text: root.myString
+<MainScreen>:
+    AnchorLayout:
+        anchor_x: 'left'
+        Button:
+            size_hint: 0.5, 1
+            text: 'Goto settings'
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'settings'
+    AnchorLayout:
+        anchor_x: 'right'
+        Button:
+            size_hint: 0.5, 1
+            text: 'Quit'
+            on_press:
+                app.stop()
 
-    TextInput:
-        on_text: root.myString = self.text
+<SettingsScreen>:
+    AnchorLayout:
+        size_hint: 0.5, 1
+        BoxLayout:
+            orientation: 'vertical'
+            anchor_x: 'left'
+            Button:
+                text: 'My settings button'
+            Button:
+                text: 'My settings button 2'
+            Button:
+                text: 'My settings button 3'
+            Button:
+                text: 'My settings button 4'
+            Button:
+                text: 'My settings button 5'
+            Button:
+                text: 'My settings button 6'
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'top'
+        Button:
+            size_hint: 0.2, 0.1
+            text: 'Back to main'
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.current = 'main'
 
-MainWindow:
