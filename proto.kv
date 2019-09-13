@@ -1,45 +1,52 @@
-<MainScreen>:
-    AnchorLayout:
-        anchor_x: 'left'
-        Button:
-            size_hint: 0.5, 1
-            text: 'Goto settings'
-            on_press:
-                root.manager.transition.direction = 'right'
-                root.manager.current = 'settings'
-    AnchorLayout:
-        anchor_x: 'right'
-        Button:
-            size_hint: 0.5, 1
-            text: 'Quit'
-            on_press:
-                app.stop()
+<PongBall>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
 
-<SettingsScreen>:
-    AnchorLayout:
-        size_hint: 0.5, 1
-        BoxLayout:
-            orientation: 'vertical'
-            anchor_x: 'left'
-            Button:
-                text: 'My settings button'
-            Button:
-                text: 'My settings button 2'
-            Button:
-                text: 'My settings button 3'
-            Button:
-                text: 'My settings button 4'
-            Button:
-                text: 'My settings button 5'
-            Button:
-                text: 'My settings button 6'
-    AnchorLayout:
-        anchor_x: 'right'
-        anchor_y: 'top'
-        Button:
-            size_hint: 0.2, 0.1
-            text: 'Back to main'
-            on_press:
-                root.manager.transition.direction = 'left'
-                root.manager.current = 'main'
+<PongPaddle>:
+    size: 25, 200
+    canvas:
+        Rectangle:
+            pos:self.pos
+            size:self.size
+
+<MainWindow>:
+    ball: pong_ball
+    player1: player_left
+    player2: player_right
+
+    canvas:
+        Rectangle:
+            pos: self.center_x - 5, 0
+            size: 10, self.height
+
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: str(root.player1.score)
+
+    Label:
+        font_size: 70
+        center_x: root.width * 3 / 4
+        top: root.top - 50
+        text: str(root.player2.score)
+
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+
+    PongPaddle:
+        id: player_left
+        x: root.x
+        center_y: root.center_y
+
+    PongPaddle:
+        id: player_right
+        x: root.width - self.width
+        center_y: root.center_y
+
+MainWindow:
 
